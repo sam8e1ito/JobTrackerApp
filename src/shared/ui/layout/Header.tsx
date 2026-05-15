@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { useTheme } from '@/app/providers/useTheme';
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const { theme, toggleTheme } = useTheme();
 
   const toggleNavbar = () => {
     setIsOpen((prev) => !prev);
@@ -26,6 +29,7 @@ export const Header = () => {
               </Link>
             );
           })}
+          <button onClick={toggleTheme}>{theme === 'dark' ? 'Dark' : 'Light'}</button>
         </nav>
       </header>
     </>
