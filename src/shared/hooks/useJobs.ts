@@ -1,11 +1,5 @@
-//states:
-// jobs, form, editingId
-
-//actions:
-// addJob(); deleteJob(); startEdit(); submitJob()
-
 import { useEffect, useState } from 'react';
-import type { Job } from '@/shared/types/content';
+import type { Job, JobStatus } from '@/shared/types/content';
 import { JOB_APPLICATION_KEY } from '@/shared/constants/localStorage';
 
 export const useJobs = () => {
@@ -13,6 +7,22 @@ export const useJobs = () => {
     const stored = localStorage.getItem(JOB_APPLICATION_KEY);
     return stored ? JSON.parse(stored) : [];
   });
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const openCreate = () => {
+    setForm({
+      company: '',
+      salary: 0,
+      address: '',
+    });
+
+    setEditingId(null);
+    setIsModalOpen(true);
+  };
 
   const [editingId, setEditingId] = useState<string | null>(null);
 
@@ -61,6 +71,7 @@ export const useJobs = () => {
     });
 
     setEditingId(job.id);
+    setIsModalOpen(true);
   };
 
   const updateJob = () => {
@@ -84,7 +95,42 @@ export const useJobs = () => {
     } else {
       addJob();
     }
+
+    closeModal();
   };
 
-  return { jobs, form, setForm, editingId, addJob, deleteJob, startEdit, submitJob, isFormValid };
+  const changeStatus = (id: string, status: JobStatus) => {
+    setJobs((prev) =>
+      prev.map((job) =>
+        job.id === id
+          ? {
+              ...job,
+              status,
+            }
+          : job,
+      ),
+    );
+  };
+
+  return {
+    jobs,
+
+    form,
+    setForm,
+
+    editingId,
+
+    addJob,
+    deleteJob,
+    startEdit,
+    submitJob,
+
+    isFormValid,
+    isModalOpen,
+
+    closeModal,
+    openCreate,
+
+    changeStatus,
+  };
 };
