@@ -8,6 +8,8 @@ export const useJobs = () => {
     return stored ? JSON.parse(stored) : [];
   });
 
+  const [toast, setToast] = useState('');
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const closeModal = () => {
     setIsModalOpen(false);
@@ -57,10 +59,12 @@ export const useJobs = () => {
 
     setJobs((prev) => [...prev, newJob]);
     resetForm();
+    setToast('Job created');
   };
 
   const deleteJob = (id: string) => {
     setJobs((prev) => prev.filter((job) => job.id !== id));
+    setToast('Job deleted');
   };
 
   const startEdit = (job: Job) => {
@@ -87,6 +91,7 @@ export const useJobs = () => {
 
     setEditingId(null);
     resetForm();
+    setToast('Job updated');
   };
 
   const submitJob = () => {
@@ -110,9 +115,14 @@ export const useJobs = () => {
           : job,
       ),
     );
+
+    setToast('Status changed');
   };
 
   return {
+    toast,
+    setToast,
+
     jobs,
 
     form,

@@ -1,9 +1,12 @@
 import { JobList } from '@/shared/ui/JobList';
 import { useJobs } from '@/shared/hooks/useJobs';
 import { JobForm } from '@/shared/ui/jobForm';
+import { Toast } from '@/shared/ui/Toast';
 
 export const RequestsPage = () => {
   const {
+    toast,
+    setToast,
     jobs,
     deleteJob,
     startEdit,
@@ -42,6 +45,8 @@ export const RequestsPage = () => {
       ) : (
         <span>No jobs yet</span>
       )}
+
+      {toast && <Toast message={toast} duration={3000} onClose={() => setToast('')} />}
     </>
   );
 };
