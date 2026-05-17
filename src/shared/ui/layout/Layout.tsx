@@ -3,12 +3,12 @@ import { Header } from './Header';
 
 function Layout() {
   return (
-    <>
+    <div className="app-container">
       <Header />
-      <main className="main">
+      <main className="main-content">
         <Outlet />
       </main>
-    </>
+    </div>
   );
 }
 

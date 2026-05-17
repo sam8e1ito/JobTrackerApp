@@ -10,8 +10,8 @@ type Props = {
 
 export const JobList = ({ jobs, deleteJob, startEdit, changeStatus }: Props) => {
   return (
-    <>
-      {jobs.map((job) => (
+    <div className="job-list">
+      {[...jobs].reverse().map((job) => (
         <JobCard
           key={job.id}
           job={job}
@@ -20,6 +20,6 @@ export const JobList = ({ jobs, deleteJob, startEdit, changeStatus }: Props) => 
           changeStatus={changeStatus}
         />
       ))}
-    </>
+    </div>
   );
 };

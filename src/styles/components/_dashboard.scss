@@ -1,0 +1,46 @@
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.dashboard-card {
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-input-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border-left: 5px solid var(--color-text-muted);
+
+  &__title {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  &__value {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--color-text-main);
+  }
+
+  &[data-status='total'] {
+    border-left-color: var(--color-primary);
+  }
+  &[data-status='pending'] {
+    border-left-color: var(--color-status-pending);
+  }
+  &[data-status='interview'] {
+    border-left-color: var(--color-status-interview);
+  }
+  &[data-status='accepted'] {
+    border-left-color: var(--color-status-accepted);
+  }
+  &[data-status='rejected'] {
+    border-left-color: var(--color-status-rejected);
+  }
+}

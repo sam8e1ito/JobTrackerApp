@@ -1,8 +1,9 @@
-@import 'globals';
+@import 'variables';
 @import 'base';
-@import 'fonts';
 
-//Page styles import
-@import 'home';
-@import 'requests';
-@import 'dashboard';
+@import 'components/jobForm';
+@import 'components/requests';
+@import 'components/dashboard';
+@import 'components/modal';
+@import 'components/toast';
+@import 'layout';
