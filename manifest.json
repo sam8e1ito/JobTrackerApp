@@ -1,0 +1,17 @@
+{
+  "short_name": "Job Tracker",
+  "name": "Job Tracker App",
+  "icons": [
+    {
+      "src": "/public/favicon.PNG.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#111111",
+  "theme_color": "#6366f1",
+  "display": "standalone",
+  "orientation": "portrait"
+}
