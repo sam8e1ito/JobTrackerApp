@@ -7,6 +7,117 @@
   }
 }
 
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 100vh;
+  width: 100%;
+
+  @include tablet {
+    min-height: calc(100vh - 60px);
+  }
+}
+
+.privacy-policy {
+  max-width: 800px;
+  width: 100%;
+  line-height: 1.6;
+  color: var(--color-text-main);
+
+  &__subtitle {
+    color: var(--color-text-muted);
+    font-style: italic;
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+  }
+
+  &__section {
+    margin-bottom: 2rem;
+
+    h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+      color: var(--color-text-main);
+      border-left: 3px solid var(--color-primary);
+      padding-left: 10px;
+    }
+
+    p {
+      margin-bottom: 0.5rem;
+      color: var(--color-text-main);
+      opacity: 0.9;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin: 0.75rem 0;
+
+      li {
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    a {
+      color: var(--color-primary);
+      text-decoration: none;
+      font-weight: 500;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.app-footer {
+  background-color: var(--color-bg-sidebar);
+  border-top: 1px solid var(--color-input-border);
+  padding: 1.25rem 2.5rem;
+  margin-top: auto;
+  transition:
+    background-color 0.3s,
+    border-color 0.3s;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+
+    @media (max-width: 600px) {
+      flex-direction: column;
+      gap: 0.75rem;
+      text-align: center;
+    }
+  }
+
+  &__copyright {
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+    font-weight: 400;
+  }
+
+  &__links {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  &__link {
+    color: var(--color-text-muted);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--color-primary);
+    }
+  }
+}
+
 .sidebar {
   width: 260px;
   background-color: var(--color-bg-sidebar);

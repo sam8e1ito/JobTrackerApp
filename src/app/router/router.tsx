@@ -1,6 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 import Layout from '@/shared/ui/layout/Layout';
-import { HomePage, DashboardPage, RequestsPage } from '@/pages';
+import { HomePage, DashboardPage, RequestsPage, PrivacyPolicyPage } from '@/pages';
 
 export const router = createBrowserRouter([
   {
@@ -10,6 +10,7 @@ export const router = createBrowserRouter([
       { index: true, element: <HomePage /> },
       { path: 'dashboard', element: <DashboardPage /> },
       { path: 'requests', element: <RequestsPage /> },
+      { path: 'privacy', element: <PrivacyPolicyPage /> },
     ],
   },
 ]);
