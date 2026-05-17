@@ -14,11 +14,21 @@ export const DashboardPage = () => {
   return (
     <>
       <h2>Dashboard</h2>
-      <JobDashboardCard title="Total Jobs:" job={totalJobs} />
-      {pendingJobs > 0 ? <JobDashboardCard title="Pending Jobs:" job={pendingJobs} /> : null}
-      {interviewJobs > 0 ? <JobDashboardCard title="Interview Jobs:" job={interviewJobs} /> : null}
-      {acceptedJobs > 0 ? <JobDashboardCard title="Accepted Jobs:" job={acceptedJobs} /> : null}
-      {rejectedJobs > 0 ? <JobDashboardCard title="Rejected Jobs:" job={rejectedJobs} /> : null}
+      <div className="dashboard-grid">
+        <JobDashboardCard title="Total Jobs:" job={totalJobs} status="total" />
+        {pendingJobs > 0 ? (
+          <JobDashboardCard title="Pending Jobs:" job={pendingJobs} status="pending" />
+        ) : null}
+        {interviewJobs > 0 ? (
+          <JobDashboardCard title="Interview Jobs:" job={interviewJobs} status="interview" />
+        ) : null}
+        {acceptedJobs > 0 ? (
+          <JobDashboardCard title="Accepted Jobs:" job={acceptedJobs} status="accepted" />
+        ) : null}
+        {rejectedJobs > 0 ? (
+          <JobDashboardCard title="Rejected Jobs:" job={rejectedJobs} status="rejected" />
+        ) : null}
+      </div>
     </>
   );
 };

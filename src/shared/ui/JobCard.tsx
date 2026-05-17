@@ -9,11 +9,12 @@ type Props = {
 
 export const JobCard = ({ job, deleteJob, startEdit, changeStatus }: Props) => {
   return (
-    <div>
-      <h3>{job.company}</h3>
-      <p>{job.salary}</p>
-      <p>{job.address}</p>
+    <div className="job-card">
+      <h3 className="job-card__company">{job.company}</h3>
+      <p className="job-card__salary">{job.salary}€</p>
+      <p className="job-card__address">{job.address}</p>
       <select
+        className="job-card__select"
         value={job.status}
         onChange={(e) => changeStatus(job.id, e.target.value as JobStatus)}
       >
@@ -25,9 +26,14 @@ export const JobCard = ({ job, deleteJob, startEdit, changeStatus }: Props) => {
 
         <option value="rejected">Rejected</option>
       </select>
-
-      <button onClick={() => startEdit(job)}>Edit</button>
-      <button onClick={() => deleteJob(job.id)}>Delete</button>
+      <div className="job-card__actions">
+        <button className="job-card__btn-edit" onClick={() => startEdit(job)}>
+          Edit
+        </button>
+        <button className="job-card__btn-delete" onClick={() => deleteJob(job.id)}>
+          Delete
+        </button>
+      </div>
     </div>
   );
 };

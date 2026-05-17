@@ -1,0 +1,61 @@
+:root[data-theme='dark'] {
+  /* Backgrounds */
+  --color-bg-main: #0f172a;
+  --color-bg-card: #1e293b;
+  --color-bg-sidebar: #131c2e;
+
+  /* Text */
+  --color-text-main: #f8fafc;
+  --color-text-muted: #94a3b8;
+
+  /* Buttons and inputs */
+  --color-primary: #6366f1;
+  --color-primary-hover: #4f46e5;
+  --color-danger: #f87171;
+  --color-danger-hover: #c23c3c;
+  --color-input-border: #334155;
+
+  /* Status and Dashboard Cards */
+  --color-status-pending: #3b82f6; // pending
+  --color-status-interview: #f59e0b; // interview
+  --color-status-accepted: #10b981; // accepted
+  --color-status-rejected: #ef4444; // rejected
+}
+:root[data-theme='light'] {
+  /* Backgrounds */
+  --color-bg-main: #f8fafc;
+  --color-bg-card: #ffffff;
+  --color-bg-sidebar: #ffffff;
+
+  /* text */
+  --color-text-main: #0f172a;
+  --color-text-muted: #64748b;
+
+  /* Buttons and inputs */
+  --color-primary: #4f46e5;
+  --color-primary-hover: #4338ca;
+  --color-danger: #ef4444;
+  --color-danger-hover: #c23c3c;
+  --color-input-border: #cbd5e1;
+
+  /* Status and Dashboard Cards */
+  --color-status-pending: #3b82f6; // pending
+  --color-status-interview: #f59e0b; // interview
+  --color-status-accepted: #10b981; // accepted
+  --color-status-rejected: #ef4444; // rejected
+}
+
+$breakpoint-mobile: 600px;
+$breakpoint-tablet: 1024px;
+
+@mixin mobile {
+  @media (max-width: #{$breakpoint-mobile}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: #{$breakpoint-tablet}) {
+    @content;
+  }
+}

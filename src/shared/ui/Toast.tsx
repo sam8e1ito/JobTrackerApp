@@ -16,7 +16,7 @@ export const Toast = ({ message, duration = 3000, onClose }: Props) => {
   }, [duration, onClose]);
 
   return (
-    <div>
+    <div className="toast">
       <p>{message}</p>
     </div>
   );

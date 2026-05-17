@@ -23,18 +23,23 @@ export const RequestsPage = () => {
     <>
       <h2>Requests</h2>
       {isModalOpen && (
-        <div className="modal">
-          <JobForm
-            form={form}
-            setForm={setForm}
-            editingId={editingId}
-            submitJob={submitJob}
-            isFormValid={isFormValid}
-          />
+        <div className="modal-overlay" onClick={closeModal}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-content__close-btn" onClick={closeModal}>
+              Close
+            </button>
 
-          <button onClick={closeModal}>Close</button>
+            <JobForm
+              form={form}
+              setForm={setForm}
+              editingId={editingId}
+              submitJob={submitJob}
+              isFormValid={isFormValid}
+            />
+          </div>
         </div>
       )}
+
       {jobs.length > 0 ? (
         <JobList
           jobs={jobs}

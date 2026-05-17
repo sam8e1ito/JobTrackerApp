@@ -16,8 +16,9 @@ export const JobForm = ({ form, setForm, editingId, submitJob, isFormValid }: Pr
   };
 
   return (
-    <form onSubmit={handleSubmit} id="jobForm">
+    <form onSubmit={handleSubmit} className="job-form">
       <input
+        className="job-form__input"
         type="text"
         placeholder="Company"
         value={form.company}
@@ -25,20 +26,22 @@ export const JobForm = ({ form, setForm, editingId, submitJob, isFormValid }: Pr
       />
 
       <input
+        className="job-form__input"
         type="number"
-        placeholder="Salary"
-        value={form.salary}
+        placeholder="Salary in €"
+        value={form.salary > 0 ? form.salary : ''}
         onChange={(e) => setForm((prev) => ({ ...prev, salary: Number(e.target.value) }))}
       />
 
       <input
+        className="job-form__input"
         type="text"
         placeholder="Address"
         value={form.address}
         onChange={(e) => setForm((prev) => ({ ...prev, address: e.target.value }))}
       />
 
-      <button type="submit" disabled={!isFormValid}>
+      <button className="job-form__submit" type="submit" disabled={!isFormValid}>
         {editingId ? 'Save' : 'Add'}
       </button>
     </form>
