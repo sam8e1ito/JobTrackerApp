@@ -1,9 +1,10 @@
 import { JobForm } from '@/shared/ui/jobForm';
 
 import { useJobs } from '@/shared/hooks/useJobs';
+import { Toast } from '@/shared/ui/Toast';
 
 export const HomePage = () => {
-  const { form, setForm, editingId, submitJob, isFormValid } = useJobs();
+  const { toast, setToast, form, setForm, editingId, submitJob, isFormValid } = useJobs();
   return (
     <>
       <h2>Home</h2>
@@ -14,6 +15,8 @@ export const HomePage = () => {
         submitJob={submitJob}
         isFormValid={isFormValid}
       />
+
+      {toast && <Toast message={toast} duration={3000} onClose={() => setToast('')} />}
     </>
   );
 };
